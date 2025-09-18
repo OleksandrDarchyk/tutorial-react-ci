@@ -1,5 +1,5 @@
 import "./App.css";
-import { Api, PostModel } from "./api";
+import { Api } from "./api";
 import { Layout, WelcomeHero } from "./components/layout";
 import { PostList } from "./components/post-list";
 
