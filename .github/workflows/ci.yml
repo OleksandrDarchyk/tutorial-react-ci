@@ -18,7 +18,11 @@ jobs:
           node-version: "22"
       - name: Install dependencies
         run: npm clean-install
+
       - name: Build
         run: npm run build
       - name: Lint
         run: npm run lint
+
+               
+
