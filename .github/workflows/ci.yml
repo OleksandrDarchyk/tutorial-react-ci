@@ -1,10 +1,12 @@
 name: Build, test and lint
+
 on:
   push:
     branches: ["main"]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches: ["main"]
+
 jobs:
   frontend_build_lint_test_job:
     runs-on: ubuntu-latest
@@ -16,7 +18,7 @@ jobs:
           node-version: "22"
       - name: Install dependencies
         run: npm clean-install
-               - name: Build
-               run: npm run build
-                 - name: Lint
-                   run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: Lint
+        run: npm run lint
