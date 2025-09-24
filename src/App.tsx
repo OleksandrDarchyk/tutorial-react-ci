@@ -1,7 +1,8 @@
 import "./App.css";
 import { Api } from "./api";
 import { Layout, WelcomeHero } from "./components/layout";
-import { PostList } from "./components/post-list";
+{/* <PostList posts={posts}></PostList> */}
+
 
 function App() {
     const posts = new Api().postList();
