@@ -1,20 +1,20 @@
 name: Build, test and lint
-
 on:
   push:
     branches: ["main"]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches: ["main"]
-
 jobs:
   frontend_build_lint_test_job:
     runs-on: ubuntu-latest
+
     permissions:
       # Required to checkout the code
       contents: read
       # Required to put a comment into the pull-request
       pull-requests: write
+
     name: Build, lint and test job
     steps:
       - uses: actions/checkout@v4
@@ -23,9 +23,15 @@ jobs:
           node-version: "22"
       - name: Install dependencies
         run: npm clean-install
+      - name: Build
+        run: npm run build
+      - name: Lint
+        run: npm run lint
       - name: Test
         run: npm run test:coverage
       - name: Report Coverage
+        # Set if: always() to also generate the report if tests are failing
+        # Only works if you set `reportOnFailure: true` in your vite config as specified above
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
         with:
